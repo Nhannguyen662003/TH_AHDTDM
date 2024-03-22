@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+  int n;
+  printf("Nhap n: ");
+  scanf("%d", &n);
+
+  int soChinhPhuong = demSoChinhPhuong(n);
+
+  printf("So luong so chinh phuong nho hon %d la: %d\n\n", n, soChinhPhuong);
+  getchar();
+
+  return 0;
+}
+
+int kiemTraSoChinhPhuong(int n) {
+  int canBacHai = (int)sqrt(n);
+  return canBacHai * canBacHai == n;
+}
+
+int demSoChinhPhuong(int n) {
+  int dem = 0;
+  for (int i = 1; i <= n; i++) {
+    if (kiemTraSoChinhPhuong(i)) {
+      dem++;
+    }
+  }
+  return dem;
+}
